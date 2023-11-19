@@ -20,9 +20,9 @@ namespace AdaWepApi.Controllers
                 var rezervasyonKisiSayisi = request.RezervasyonYapilacakKisiSayisi;
                 var kisilerFarkliVagonlaraYerlestirilebilir = request.KisilerFarkliVagonlaraYerlestirilebilir;
 
-                // Rezervasyon yapılabilirlik kontrolü burada gerçekleştirilecek
+              
 
-                // Örnek bir kontrol: Eğer herhangi bir vagonun doluluk oranı %70'i geçiyorsa rezervasyon yapılamaz.
+                // herhangi bir vagonun doluluk oranı %70'i geçiyorsa rezervasyon yapılamaz.
                 var rezervasyonYapilabilir = tren.Vagonlar.All(vagon => (vagon.DoluKoltukAdet / vagon.Kapasite) * 100 < 70);
 
                 if (!rezervasyonYapilabilir)
@@ -30,7 +30,7 @@ namespace AdaWepApi.Controllers
                     return BadRequest("Rezervasyon yapılamaz. Vagonların doluluk oranı çok yüksek.");
                 }
 
-                // Örnek yerleşim algoritması: Koltukları dolduracak şekilde kişileri vagonlara yerleştir
+                // Koltukları dolduracak şekilde kişileri vagonlara yerleştir
                 var kalanKisiSayisi = rezervasyonKisiSayisi;
                 var yerlesimAyrinti = new List<ReservedSeatInfo>();
 
@@ -46,7 +46,7 @@ namespace AdaWepApi.Controllers
 
                         if (kalanKisiSayisi == 0)
                         {
-                            break; // Tüm kişiler yerleştirildi
+                            break;
                         }
                     }
                 }
