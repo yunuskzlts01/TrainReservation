@@ -9,7 +9,6 @@ namespace AdaWepApi.Controllers
 {
 
     public class TrainController : ApiController
-
     {
         [HttpPost]
         [Route("api/rezervasyon")]
